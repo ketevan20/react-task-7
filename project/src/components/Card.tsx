@@ -1,6 +1,11 @@
 import avatarImg from '/images/Bitmap.png'
 
-const Card = () => {
+type CardProps = {
+    handleClick: (value: string) => void;
+    filter: string;
+}
+
+const Card = ({handleClick, filter}: CardProps) => {
     return (
         <div className="w-full h-full rounded-[15px] bg-[rgb(28,32,75)] row-span-2 col-span-1 max-sm:h-[203px]">
             <div className="w-full h-[354px] p-8 rounded-[15px] bg-[rgba(87,71,234,1)] max-sm:flex max-sm:items-center max-sm:gap-5 max-sm:h-[133px]">
@@ -14,9 +19,9 @@ const Card = () => {
             </div>
 
             <div className="mt-[26px] ml-8 flex flex-col gap-4 max-sm:flex-row max-sm:justify-around max-sm:ml-0 max-sm:mt-6">
-                <p className="text-[18px] text-[rgba(112,120,201,1)] hover:text-[rgba(255,255,255,1)]">Daily</p>
-                <p className="text-[18px] text-[rgba(255,255,255,1)]">Weekly</p>
-                <p className="text-[18px] text-[rgba(112,120,201,1)] hover:text-[rgba(255,255,255,1)]">Monthly</p>
+                <p onClick={() => handleClick('daily')} className={`cursor-pointer text-[18px] ${filter === 'daily' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Daily</p>
+                <p onClick={() => handleClick('weekly')} className={`cursor-pointer text-[18px] ${filter === 'weekly' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Weekly</p>
+                <p onClick={() => handleClick('monthly')} className={`cursor-pointer text-[18px] ${filter === 'monthly' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Monthly</p>
             </div>
 
         </div>
