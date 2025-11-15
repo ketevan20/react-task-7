@@ -19,9 +19,9 @@ const Card = ({handleClick, filter}: CardProps) => {
             </div>
 
             <div className="mt-[26px] ml-8 flex flex-col gap-4 max-sm:flex-row max-sm:justify-around max-sm:ml-0 max-sm:mt-6">
-                <p onClick={() => handleClick('daily')} className={`cursor-pointer text-[18px] ${filter === 'daily' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Daily</p>
-                <p onClick={() => handleClick('weekly')} className={`cursor-pointer text-[18px] ${filter === 'weekly' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Weekly</p>
-                <p onClick={() => handleClick('monthly')} className={`cursor-pointer text-[18px] ${filter === 'monthly' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Monthly</p>
+                <p onClick={() => handleClick('daily')} className={`hover:text-[rgba(255,255,255,1)] cursor-pointer text-[18px] ${filter === 'daily' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Daily</p>
+                <p onClick={() => handleClick('weekly')} className={`hover:text-[rgba(255,255,255,1)] cursor-pointer text-[18px] ${filter === 'weekly' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Weekly</p>
+                <p onClick={() => handleClick('monthly')} className={`hover:text-[rgba(255,255,255,1)] cursor-pointer text-[18px] ${filter === 'monthly' ? "text-[rgba(255,255,255,1)]" : 'text-[rgba(112,120,201,1)]'}`}>Monthly</p>
             </div>
 
         </div>
