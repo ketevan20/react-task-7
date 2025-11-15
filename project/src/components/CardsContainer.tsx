@@ -7,6 +7,7 @@ import bgGreen from '/images/bg-green.png'
 import bgPurple from '/images/bg-purple.png'
 import bgYellow from '/images/bg-yellow.png'
 import Card from "./Card"
+import { useState } from "react"
 
 
 const Grid = styled.div`
@@ -34,47 +35,156 @@ const Grid = styled.div`
     }
 `;
 
+const data = [
+  {
+    "title": "Work",
+    "timeframes": {
+      "daily": {
+        "current": 5,
+        "previous": 7
+      },
+      "weekly": {
+        "current": 32,
+        "previous": 36
+      },
+      "monthly": {
+        "current": 103,
+        "previous": 128
+      }
+    }
+  },
+  {
+    "title": "Play",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 2
+      },
+      "weekly": {
+        "current": 10,
+        "previous": 8
+      },
+      "monthly": {
+        "current": 23,
+        "previous": 29
+      }
+    }
+  },
+  {
+    "title": "Study",
+    "timeframes": {
+      "daily": {
+        "current": 0,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 4,
+        "previous": 7
+      },
+      "monthly": {
+        "current": 13,
+        "previous": 19
+      }
+    }
+  },
+  {
+    "title": "Exercise",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 4,
+        "previous": 5
+      },
+      "monthly": {
+        "current": 11,
+        "previous": 18
+      }
+    }
+  },
+  {
+    "title": "Social",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 3
+      },
+      "weekly": {
+        "current": 5,
+        "previous": 10
+      },
+      "monthly": {
+        "current": 21,
+        "previous": 23
+      }
+    }
+  },
+  {
+    "title": "Self Care",
+    "timeframes": {
+      "daily": {
+        "current": 0,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 2,
+        "previous": 2
+      },
+      "monthly": {
+        "current": 7,
+        "previous": 11
+      }
+    }
+  }
+];
+
+
+
 
 const CardsContainer = () => {
+    const [filter, setFilter] = useState('weekly');
+
     return (
         <Grid>
-            <Card />
+            <Card handleClick={setFilter} filter={filter}/>
 
             <MiniCard
                 bgImg={bgRed}
-                category='Work'
-                time='32hrs'
-                text="Last Week - 36hrs"
+                category={data[0].title}
+                time={filter === 'daily' ? `${data[0].timeframes.daily.current}hrs` : filter === 'weekly' ? `${data[0].timeframes.weekly.current}hrs` : `${data[0].timeframes.monthly.current}hrs`}
+                text={filter === 'daily' ? 'Last Day - ' + data[0].timeframes.daily.previous + 'hrs' : filter === 'weekly' ? 'Last Week - ' + data[0].timeframes.weekly.previous + 'hrs' : 'Last Month - ' + data[0].timeframes.monthly.previous + 'hrs'}
             />
             <MiniCard
                 bgImg={bgBlue}
-                category='Play'
-                time='10hrs'
-                text="Last Week - 8hrs"
+                category={data[1].title}
+                time={filter === 'daily' ? `${data[1].timeframes.daily.current}hrs` : filter === 'weekly' ? `${data[1].timeframes.weekly.current}hrs` : `${data[1].timeframes.monthly.current}hrs`}
+                text={filter === 'daily' ? 'Last Day - ' + data[1].timeframes.daily.previous + 'hrs' : filter === 'weekly' ? 'Last Week - ' + data[1].timeframes.weekly.previous + 'hrs' : 'Last Month - ' + data[1].timeframes.monthly.previous + 'hrs'}
             />
             <MiniCard
                 bgImg={bgPink}
-                category='Study'
-                time='4hrs'
-                text="Last Week - 7hrs"
+                category={data[2].title}
+                time={filter === 'daily' ? `${data[2].timeframes.daily.current}hrs` : filter === 'weekly' ? `${data[2].timeframes.weekly.current}hrs` : `${data[2].timeframes.monthly.current}hrs`}
+                text={filter === 'daily' ? 'Last Day - ' + data[2].timeframes.daily.previous + 'hrs' : filter === 'weekly' ? 'Last Week - ' + data[2].timeframes.weekly.previous + 'hrs' : 'Last Month - ' + data[2].timeframes.monthly.previous + 'hrs'}
             />
             <MiniCard
                 bgImg={bgGreen}
-                category='Exercise'
-                time='4hrs'
-                text="Last Week - 5hrs"
+                category={data[3].title}
+                time={filter === 'daily' ? `${data[3].timeframes.daily.current}hrs` : filter === 'weekly' ? `${data[3].timeframes.weekly.current}hrs` : `${data[3].timeframes.monthly.current}hrs`}
+                text={filter === 'daily' ? 'Last Day - ' + data[3].timeframes.daily.previous + 'hrs' : filter === 'weekly' ? 'Last Week - ' + data[3].timeframes.weekly.previous + 'hrs' : 'Last Month - ' + data[3].timeframes.monthly.previous + 'hrs'}
             />
             <MiniCard
                 bgImg={bgPurple}
-                category='Social'
-                time='5hrs'
-                text="Last Week - 10hrs"
+                category={data[4].title}
+                time={filter === 'daily' ? `${data[4].timeframes.daily.current}hrs` : filter === 'weekly' ? `${data[4].timeframes.weekly.current}hrs` : `${data[4].timeframes.monthly.current}hrs`}
+                text={filter === 'daily' ? 'Last Day - ' + data[4].timeframes.daily.previous + 'hrs' : filter === 'weekly' ? 'Last Week - ' + data[4].timeframes.weekly.previous + 'hrs' : 'Last Month - ' + data[4].timeframes.monthly.previous + 'hrs'}
             />
             <MiniCard
                 bgImg={bgYellow}
-                category='Self Care'
-                time='2hrs'
-                text="Last Week - 2hrs"
+                category={data[5].title}
+                time={filter === 'daily' ? `${data[5].timeframes.daily.current}hrs` : filter === 'weekly' ? `${data[5].timeframes.weekly.current}hrs` : `${data[5].timeframes.monthly.current}hrs`}
+                text={filter === 'daily' ? 'Last Day - ' + data[5].timeframes.daily.previous + 'hrs' : filter === 'weekly' ? 'Last Week - ' + data[5].timeframes.weekly.previous + 'hrs' : 'Last Month - ' + data[5].timeframes.monthly.previous + 'hrs'}
             />
         </Grid>
     )
